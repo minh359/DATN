@@ -1,0 +1,51 @@
+﻿@page "/dialog"
+@inject ISnackbar Snackbar
+<MudBlazor.MudDialog>
+    <DialogContent>
+        <MudText>Add Group</MudText>
+    </DialogContent>
+    <DialogContent>
+        <MudTextField @bind-Value="@grp_name" Label="Group name " />
+        <MudTextField @bind-Value="@grp_type" Label="Group type " />
+        <MudPaper Width="300px">
+            <MudList>
+                <MudListItem Avatar="@Icons.Material.Filled.Image">
+                    Choose members for new group
+                </MudListItem>
+                @if (accounts == null)
+                {
+                    <LoadingIndicator></LoadingIndicator>
+                }
+                else
+                {
+                    <MudSelect T="int" Label="Choose Members" MultiSelection="true" @bind-SelectedValues="lst_acc">
+                        @foreach (var item in accounts)
+                        {
+                            <MudSelectItem T="int" Value="@item.AccountID">
+                                @if (item.Status == "Online")
+                                {
+                                    <MudBadge Color="Color.Success" Overlap="true" Bordered="true">
+                                        <MudAvatar Image="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png" />
+                                    </MudBadge>
+
+                                }
+                                else
+                                {
+                                    <MudBadge Color="Color.Dark" Overlap="true" Bordered="true">
+                                        <MudAvatar Image="https://media.istockphoto.com/vectors/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620?k=20&m=1300845620&s=612x612&w=0&h=f4XTZDAv7NPuZbG0habSpU0sNgECM0X7nbKzTUta3n8=" />
+                                    </MudBadge>
+                                }
+                                @item.Name
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
+                }
+
+            </MudList>
+        </MudPaper>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Error" OnClick="Add">Add</MudButton>
+    </DialogActions>
+</MudBlazor.MudDialog>

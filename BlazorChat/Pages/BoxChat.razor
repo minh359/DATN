@@ -1,0 +1,29 @@
+﻿@page "/box"
+<h3>BoxChat</h3>
+@if (boxChats == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Box ID</th>
+                <th>Name</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var box in boxChats)
+            {
+                <tr>
+                    <td>@box.BoxId</td>
+                    <td>@box.Name</td>
+                    <td>@box.Image</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

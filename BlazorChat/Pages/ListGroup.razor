@@ -1,0 +1,69 @@
+﻿@page "/group"
+@using MudBlazor
+@inject ISnackbar Snackbar
+<div style="display:inline-block;width:100%">
+    <div style="display:block;float:left;width:30%">
+        <h3>ListGroup</h3>
+        @if (groups == null)
+        {
+            <LoadingIndicator></LoadingIndicator>
+        }
+        else
+        {
+
+            <MudPaper Width="300px">
+                <MudList Clickable="true">
+                    @foreach (var item in groups)
+                    {
+                        <MudListItem Avatar="@Icons.Material.Filled.Image" OnClick="() => GetListAccInGroup(item.GroupId)">
+                            @item.GroupName
+                        </MudListItem>
+                    }
+                </MudList>
+            </MudPaper>
+
+            <!-- Lấy danh sách các tài khoản kèm check box-->
+            <MudPaper Width="300px">
+                <MudList>
+                    @if (accounts == null)
+                    {
+                        <MudListItem Avatar="@Icons.Material.Filled.Image">
+                            Choose a group to see members
+                        </MudListItem>
+                    }
+                    else
+                    {
+                        foreach (var item in accounts)
+                        {
+                            <MudListItem>
+                                @if (item.Status == "Online")
+                                {
+                                    <MudBadge Color="Color.Success" Overlap="true" Bordered="true">
+                                        <MudAvatar Image="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png" />
+                                    </MudBadge>
+
+                                }
+                                else
+                                {
+                                    <MudBadge Color="Color.Dark" Overlap="true" Bordered="true">
+                                        <MudAvatar Image="https://media.istockphoto.com/vectors/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620?k=20&m=1300845620&s=612x612&w=0&h=f4XTZDAv7NPuZbG0habSpU0sNgECM0X7nbKzTUta3n8=" />
+                                    </MudBadge>
+                                }
+                                @item.Name
+                            </MudListItem>
+                        }
+                    }
+
+                </MudList>
+            </MudPaper>
+            <MudButton Color="Color.Primary" StartIcon="@Icons.Material.Filled.AddModerator" @onclick="AddGroup" >Add</MudButton>
+            <NavLink class="nav-link" href="dialog">
+                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+        }
+
+    </div>
+    <div style="display:block; float:right;width:70%">
+        <ChatRoom></ChatRoom>
+    </div>
+</div>

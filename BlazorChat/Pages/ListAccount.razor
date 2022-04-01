@@ -1,0 +1,51 @@
+﻿@page "/list"
+@using MudBlazor
+<h3>ListAccount</h3>
+@if (accounts == null)
+{
+    <LoadingIndicator></LoadingIndicator>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Email</th>
+                <th>Country</th>
+                <th>Icon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in accounts)
+            {
+            <tr>
+                <td>@item.AccountID</td>
+                <td>@item.Username</td>
+                <td>@item.Name</td>
+                <td>@item.Dob.ToString("dd/MM/yyyy")</td>
+                <td>@item.Email</td>
+                <td>@item.Country</td>
+                <th>
+                    @if (item.Status == "Online")
+                    {
+                        <MudBadge Color="Color.Success"  Overlap="true" Bordered="true">
+                            <MudAvatar Image="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png" />
+                        </MudBadge>
+                    }
+                    else
+                    {
+                        <MudBadge Color="Color.Dark"  Overlap="true" Bordered="true">
+                            <MudAvatar Image="https://media.istockphoto.com/vectors/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620?k=20&m=1300845620&s=612x612&w=0&h=f4XTZDAv7NPuZbG0habSpU0sNgECM0X7nbKzTUta3n8=" />
+                        </MudBadge>
+                    }
+                </th>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+

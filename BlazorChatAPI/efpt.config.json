@@ -1,0 +1,79 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "BlazorChatDbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "BlazorChatAPI",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Account]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Account_Group]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BoxChat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GroupChat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Message]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Reaction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StatusInBoxChat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TypeOfGroup]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TypeOfMessage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TypeOfPermission]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TypeOfReaction]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "minhnguyen359\\db1107229.DBWebChat.dbo",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
